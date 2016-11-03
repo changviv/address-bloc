@@ -49,7 +49,7 @@ class MenuController
     end
 
     def view_all_entries
-      address_book.entries.each do |entry|
+      @address_book.entries.each do |entry|
         system "clear"
         puts entry.to_s
         entry_submenu(entry)
@@ -61,14 +61,16 @@ class MenuController
 
     def view_entry_number
       print "Number: "
-      number= gets.chomp.to_i
+      number = gets.chomp.to_i
 
-      if number ==  address_book.entries[number]
-        puts entry
-      else
+      if number < @address_book.entries.count
+        puts @address_book.entries[number]
+        puts "Press enter to return to the main menu"
+        gets.chomp
         system "clear"
+      else
         puts "#{number} is not a valid input"
-        main_menu
+        view_entry_number
       end
     end
 
