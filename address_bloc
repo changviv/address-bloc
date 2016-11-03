@@ -1,6 +1,0 @@
-module Bloc
-  class AddressBloc
-    def input_address
-    end
-  end
-end
