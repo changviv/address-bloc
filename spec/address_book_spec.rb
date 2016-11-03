@@ -1,6 +1,6 @@
-require_relative '../models/addres_book'
+require_relative '../models/address_book'
 
-RSpec describe AddressBook do
+RSpec.describe AddressBook do
   describe "attributes" do
     it "responds to entries" do
       book = AddressBook.new
