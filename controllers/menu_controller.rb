@@ -39,32 +39,13 @@ class MenuController
         exit(0)
       when 6
         system "clear"
-        nuke_entries
+        @address_book.nuke_entries
+        puts "All entries deleted"
         main_menu
       else
         system "clear"
         puts "Sorry, that is not a valid input"
         main_menu
-      end
-    end
-
-    def nuke_entries
-      puts "Are you sure you want to delete all entries?"
-      print "y/n: "
-      selection = gets.chomp
-
-      case selection
-      when "y"
-        address_book.entries.each do |entry|
-          address_book.entries.delete(entry)
-        end
-      when "n"
-        system "clear"
-        main_menu
-      else
-        system "clear"
-        puts "#{selection} is not valid"
-        nuke_entries
       end
     end
 
@@ -76,7 +57,6 @@ class MenuController
       end
       system "clear"
       puts "End of entries"
-
     end
 
     def create_entry
